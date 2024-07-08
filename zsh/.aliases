@@ -8,20 +8,6 @@ alias nq="networkQuality -v"
 # Neovim alias
 alias n="nvim ."
 
-backupnvim () {
-	cd ~/Desktop
-	git clone https://github.com/bhusalc-bipin/nvim-config.git
-	cd ~/.config/nvim/
-	cp init.lua ~/Desktop/nvim-config
-	cp -r lua ~/Desktop/nvim-config
-	cd ~/Desktop/nvim-config
-	git add .
-	git commit -m "$1"
-	git push origin
-	cd ..
-	rm -rf nvim-config
-}
-
 # directory aliases
 
 alias ..="cd .."
