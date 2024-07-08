@@ -1,0 +1,47 @@
+# temporary aliases
+
+# command aliases
+
+alias ls="ls --color -p"
+alias nq="networkQuality -v"
+
+# Neovim alias
+alias n="nvim ."
+
+backupnvim () {
+	cd ~/Desktop
+	git clone https://github.com/bhusalc-bipin/nvim-config.git
+	cd ~/.config/nvim/
+	cp init.lua ~/Desktop/nvim-config
+	cp -r lua ~/Desktop/nvim-config
+	cd ~/Desktop/nvim-config
+	git add .
+	git commit -m "$1"
+	git push origin
+	cd ..
+	rm -rf nvim-config
+}
+
+# directory aliases
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+alias pd="cd -"
+
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias spl="cd ~/Desktop/sprint_learning"
+alias p="cd ~/Desktop/Projects"
+
+# application(s) aliases
+
+alias chrome="open -a 'google chrome'"
+
+# function commands
+
+mkcd () {
+	mkdir "$1"
+	cd "$1"
+}
