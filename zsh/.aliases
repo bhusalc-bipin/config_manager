@@ -7,47 +7,47 @@
 # https://stackoverflow.com/a/1489405
 
 # Ignore .git and node_modules dir
-toIgnore=(-name .git -prune -false -o -name node_modules -prune -false )
+toIgnore=(-name .git -prune -false -o -name node_modules -prune -false -o)
 
 # Find and change dir
 sdh() {
-	local dir=$(find ~/. "${toIgnore[@]}" -o -type d | fzf)
+	local dir=$(find ~/. "${toIgnore[@]}" -type d | fzf)
 	[[ $dir ]] && cd "$dir"
 }
 
 sdcm() {
-	local dir=$(find ~/config_manager/. "${toIgnore[@]}" -o -type d | fzf)
+	local dir=$(find ~/config_manager/. "${toIgnore[@]}" -type d | fzf)
 	[[ $dir ]] && cd "$dir"
 }
 
 sdp() {
-	local dir=$(find ~/Desktop/Projects/. "${toIgnore[@]}" -o -type d | fzf)
+	local dir=$(find ~/Desktop/Projects/. "${toIgnore[@]}" -type d | fzf)
 	[[ $dir ]] && cd "$dir"
 }
 
 sdl() {
-	local dir=$(find ~/Desktop/sprint_learning/. "${toIgnore[@]}" -o -type d | fzf)
+	local dir=$(find ~/Desktop/sprint_learning/. "${toIgnore[@]}" -type d | fzf)
 	[[ $dir ]] && cd "$dir"
 }
 
 # Find and open file with nvim
 sfh() {
-	local file=$(find ~/. "${toIgnore[@]}" -o -type f | fzf)
+	local file=$(find ~/. "${toIgnore[@]}" -type f | fzf)
 	[[ $file ]] && nvim "$file"
 }
 
 sfcm() {
-	local file=$(find ~/config_manager/. "${toIgnore[@]}" -o -type f | fzf)
+	local file=$(find ~/config_manager/. "${toIgnore[@]}" -type f | fzf)
 	[[ $file ]] && nvim "$file"
 }
 
 sfp() {
-	local file=$(find ~/Desktop/Projects/. "${toIgnore[@]}" -o -type f | fzf)
+	local file=$(find ~/Desktop/Projects/. "${toIgnore[@]}" -type f | fzf)
 	[[ $file ]] && nvim "$file"
 }
 
 sfl() {
-	local file=$(find ~/Desktop/sprint_learning/. "${toIgnore[@]}" -o -type f | fzf)
+	local file=$(find ~/Desktop/sprint_learning/. "${toIgnore[@]}" -type f | fzf)
 	[[ $file ]] && nvim "$file"
 }
 
