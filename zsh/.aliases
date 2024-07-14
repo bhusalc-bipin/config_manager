@@ -8,7 +8,7 @@ tmuxat() {
 	# current data stored in session is of format "session_name: some meta info"
 	# so need to extract session name which is before the colon (:) sign. Hence,
 	# using %%:* to extract substring before first colon (:) in session.
-	[[ $session ]] && $(tmux a -t "${session%%:*}")
+	[[ $session ]] && tmux a -t "${session%%:*}"
 }
 
 # fzf aliases
