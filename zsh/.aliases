@@ -1,5 +1,16 @@
 # temporary aliases
 
+# tmux aliases
+
+# fuzzy find session name and open it
+tmuxat() {
+	local session=$(tmux ls | fzf)
+	# current data stored in session is of format "session_name: some meta info"
+	# so need to extract session name which is before the colon (:) sign. Hence,
+	# using %%:* to extract substring before first colon (:) in session.
+	[[ $session ]] && $(tmux a -t "${session%%:*}")
+}
+
 # fzf aliases
 
 # Hints on how to ignore stuffs while using find was taken from
@@ -73,8 +84,6 @@ alias spl="cd ~/Desktop/sprint_learning"
 alias p="cd ~/Desktop/Projects"
 
 # application(s) aliases
-
-alias chrome="open -a 'google chrome'"
 
 # function commands
 
