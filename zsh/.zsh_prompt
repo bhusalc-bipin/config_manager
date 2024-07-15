@@ -1,29 +1,38 @@
-orange=$(tput setaf 166);
-yellow=$(tput setaf 228);
-greenYellow=$(tput setaf 154);
-white=$(tput setaf 15);
-blue=$(tput setaf 33);
-bold=$(tput bold);
-reset=$(tput sgr0);
+# Configure how terminal looks
 
-# Find and set branch name var if in git repository
+# * `tput` accesses the terminal capabilities (defined in terminfo database)
+# * `setaf` stands for "set ANSI foreground", and it changes the text color
+# * `setab` stands for "set ANSI background", and it changes the background color
+# * numder at the end are the arguments passed to `setaf` and `setab`, which is
+#   a code representing a ANSI color
+cyanFG=$(tput setaf 14);
+cyanBG=$(tput setab 14);
+blueFG=$(tput setaf 27);
+blueBG=$(tput setab 27);
+whiteFG=$(tput setaf 230);
+whiteBG=$(tput setab 230);
+whiteText=$(tput setaf 15);
+blackFG=$(tput setaf 234);
+blackBG=$(tput setab 234);
+yellowFG=$(tput setaf 226);
+reset=$(tput sgr0); # resets all attributes (colors, bold, etc.) to their default
+
+# Find and show branch name if in git repository
 
 function git_branch_name() {
 	branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
 	if [[ $branch == "" ]];
 	then
-		:
+		echo "${blackBG}${cyanFG}"
 	else
-		echo '-('$branch')'
+		echo "${blueBG}${cyanFG}${whiteText}  $branch ${blackBG}${blueFG}"
 	fi
 }
 
-# Enable substitution in the prompt
+user_info=(%n)
+dir_path=(%2~)
 
 setopt prompt_subst
-
-# Config for prompt
-
-prompt='${bold}
-${orange}%n ${white}in ${yellow}%2~ ${blue}$(git_branch_name)
-${greenYellow}$ ${reset}'
+PROMPT='
+${whiteBG}${blackFG} ${user_info} ${cyanBG}${whiteFG} ${blackFG}  ${dir_path} $(git_branch_name)${reset}
+${yellowFG}󰜴 ${reset}'
