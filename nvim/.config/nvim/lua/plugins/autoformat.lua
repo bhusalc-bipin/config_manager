@@ -31,6 +31,7 @@ return { -- Autoformat
 			-- is found.
 			javascript = { { "prettierd", "prettier" } },
 			typescript = { { "prettierd", "prettier" } },
+			javascriptreact = { { "prettierd", "prettier" } },
 			html = { { "prettierd", "prettier" } },
 			c = { "clang-format" },
 		},
