@@ -4,7 +4,7 @@
 
 # fuzzy find session name and open it
 tmuxat() {
-	local session=$(tmux ls | fzf)
+	local session=$(tmux ls | fzf) 2> /dev/null 
 	# current data stored in session is of format "session_name: some meta info"
 	# so need to extract session name which is before the colon (:) sign. Hence,
 	# using %%:* to extract substring before first colon (:) in session.
