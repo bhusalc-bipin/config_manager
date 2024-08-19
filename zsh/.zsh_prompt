@@ -1,38 +1,34 @@
 # Configure how terminal looks
 
-# * `tput` accesses the terminal capabilities (defined in terminfo database)
-# * `setaf` stands for "set ANSI foreground", and it changes the text color
-# * `setab` stands for "set ANSI background", and it changes the background color
-# * numder at the end are the arguments passed to `setaf` and `setab`, which is
-#   a code representing a ANSI color
-cyanFG=$(tput setaf 14);
-cyanBG=$(tput setab 14);
-blueFG=$(tput setaf 27);
-blueBG=$(tput setab 27);
-whiteFG=$(tput setaf 230);
-whiteBG=$(tput setab 230);
-whiteText=$(tput setaf 15);
-blackFG=$(tput setaf 234);
-blackBG=$(tput setab 234);
-yellowFG=$(tput setaf 226);
+# * `tput` accesses the terminal capabilities (defined in terminfo database).
+# * `setaf` stands for "set ANSI foreground", and it changes the text color.
+# * numder at the end is the argument passed to `setaf`, and it represents a ANSI color.
+# * for more info on which color these color-codes represent check:
+#       https://hexdocs.pm/color_palette/color_groups.html
+
+git_color=$(tput setaf 27);
+dir_color=$(tput setaf 94);
+branch_color=$(tput setaf 160);
+icon_color=$(tput setaf 178);
+dot_color=$(tput setaf 145);
+
+bold=$(tput bold); # makes text bold
 reset=$(tput sgr0); # resets all attributes (colors, bold, etc.) to their default
 
-# Find and show branch name if in git repository
+# utf code for icons (might need nerd font)
+right_angle='\uf105'
 
+# Find and show branch name if in git repository
 function git_branch_name() {
-	branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
-	if [[ $branch == "" ]];
-	then
-		echo "${blackBG}${cyanFG}"
-	else
-		echo "${blueBG}${cyanFG}${whiteText}  $branch ${blackBG}${blueFG}"
-	fi
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch ]];
+  then
+    echo "${git_color}git:(${branch_color}$branch${git_color})"
+  fi
 }
 
-user_info=(%n)
-dir_path=(%2~)
-
+dir_path=(%2~) # find the path to current dir and show only 2 trailing directory
 setopt prompt_subst
 PROMPT='
-${whiteBG}${blackFG} ${user_info} ${cyanBG}${whiteFG} ${blackFG}  ${dir_path} $(git_branch_name)${reset}
-${yellowFG}󰜴 ${reset}'
+${bold}${dir_color}${dir_path} $(git_branch_name)${reset}
+${icon_color}$(printf ${right_angle})${reset} '

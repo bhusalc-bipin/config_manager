@@ -1,4 +1,5 @@
-export LSCOLORS=Gx
+# modify the default color used for directory in ls command from blue to cyan
+export LSCOLORS=gx
 
 source ~/.zprofile
 source ~/.zsh_prompt

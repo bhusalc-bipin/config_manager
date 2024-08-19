@@ -64,7 +64,7 @@ sfl() {
 
 # command aliases
 
-alias ls="ls --color -p"
+alias ls="ls --color"
 alias nq="networkQuality -v"
 
 # Neovim alias
