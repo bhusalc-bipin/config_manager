@@ -7,3 +7,6 @@ source ~/.aliases
 
 # enable git tab completion
 autoload -Uz compinit && compinit
+
+# enable zsh-syntax-highlighting (need to install it)
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
