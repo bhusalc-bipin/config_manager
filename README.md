@@ -1,5 +1,5 @@
 
-# Config/dot files files
+<p style="text-align: center;"># Config/dot files</p>
 
 ## Things to install before cloning this repo
 
