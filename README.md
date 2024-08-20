@@ -9,19 +9,25 @@ I use macOS, so this installation guide will be for macOS.
 
 Package manager
 
-`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
 ### [Git](https://git-scm.com)
 
 Version control system
 
-`brew install git`
+```sh
+brew install git
+```
 
 ### [GNU Stow](https://www.gnu.org/software/stow/)
 
 Manage config/dot files
 
-`brew install stow`
+```sh
+brew install stow
+```
 
 ### [Neovim](https://neovim.io)
 
@@ -29,30 +35,40 @@ Text editor
 
 **NOTE** my config is based on the [kickstarter.nvim](https://github.com/nvim-lua/kickstart.nvim)
 
-`brew install neovim`
+```sh
+brew install neovim
+```
 
 ### [Tmux](https://github.com/tmux/tmux)
 
 Terminal multiplexer
 
-`brew install tmux`
+```sh
+brew install tmux
+```
 
 ### [Jetbrains mono nerd font](https://www.nerdfonts.com)
 
 Nerd font
 
-`brew install --cask font-jetbrains-mono-nerd-font`
+```sh
+brew install --cask font-jetbrains-mono-nerd-font
+```
 
 ### [fzf](https://github.com/junegunn/fzf)
 
 Fuzzy finder
 
-`brew install fzf`
+```sh
+brew install fzf
+```
 
 ### [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 Syntax highlighting for zsh
 
-`brew install zsh-syntax-highlighting`
+```sh
+brew install zsh-syntax-highlighting
+```
 
 
