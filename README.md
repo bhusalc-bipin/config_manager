@@ -3,7 +3,7 @@
 
 ## Things to install before cloning this repo
 
-I use macOS, so this installation guide will be for macOS.
+Installation guide for macOS.
 
 ### [Homebrew](https://brew.sh)
 
