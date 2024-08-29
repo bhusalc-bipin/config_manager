@@ -1,22 +1,25 @@
 return { -- Useful plugin to show you pending keybinds.
 	"folke/which-key.nvim",
 	event = "VimEnter", -- Sets the loading event to 'VimEnter'
-	config = function() -- This is the function that runs, AFTER loading
-		require("which-key").setup()
+	opts = {
+		icons = {
+			-- set icon mappings to true if you have a Nerd Font
+			mappings = vim.g.have_nerd_font,
+			-- If you are using a Nerd Font: set icons.keys to an empty table
+			-- which will yse the default which-key.nvim defined Nerd Font icons,
+			-- otherwise define a string table
+			keys = vim.g.have_nerd_font and {},
+		},
 
 		-- Document existing key chains
-		require("which-key").register({
-			["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-			["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
-			["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-			["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-			["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-			["<leader>t"] = { name = "[T]oggle", _ = "which_key_ignore" },
-			["<leader>h"] = { name = "Git [H]unk", _ = "which_key_ignore" },
-		})
-		-- visual mode
-		require("which-key").register({
-			["<leader>h"] = { "Git [H]unk" },
-		}, { mode = "v" })
-	end,
+		spec = {
+			{ "<leader>c", group = "[C]ode", mode = { "n", "x" } },
+			{ "<leader>d", group = "[D]ocument" },
+			{ "<leader>r", group = "[R]ename" },
+			{ "<leader>s", group = "[S]earch" },
+			{ "<leader>w", group = "[W]orkspace" },
+			{ "<leader>t", group = "[T]oggle" },
+			{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
+		},
+	},
 }
