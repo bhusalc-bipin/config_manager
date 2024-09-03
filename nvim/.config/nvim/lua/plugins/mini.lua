@@ -1,21 +1,19 @@
--- Collection of various small independent plugins/modules from mini.nvim
+-- Collection of various small independent plugins/modules from mini.nvim library
 return {
 	"echasnovski/mini.nvim",
-	-- Optional dependencies
-	dependencies = {
-		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
-	},
 	config = function()
-		-- Better Around/Inside textobjects
-		--
-		-- Examples:
-		--  - va)  - [V]isually select [A]round [)]paren
-		--  - yinq - [Y]ank [I]nside [N]ext [']quote
-		--  - ci'  - [C]hange [I]nside [']quote
-		require("mini.ai").setup({ n_lines = 500 })
+		-- Icon provider
+		require("mini.icons").setup()
 
-		-- Add/delete/replace surroundings (brackets, quotes, etc.)
-		--
+		-- Better Around/Inside textobjects
+		-- Examples:
+		--    - va) - [Visually] select [A]round [)]paren
+		--    - yinq - [Y]ank [I]nside [N]ext [']quote
+		--    - ci' - [C]hange [I]nside [']quote
+		require("mini.ai").setup({ n_lines = 500 }) -- number of lines within textobject is searched (default = 50)
+
+		-- Add/delete/replace/find/highlight surroundings (brackets, quotes, etc.)
+		-- Examples:
 		-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
 		-- - sd'   - [S]urround [D]elete [']quotes
 		-- - sr)'  - [S]urround [R]eplace [)] [']
@@ -27,30 +25,19 @@ return {
 
 		-- Helps navigate and manipulate file system like an file explorer in VSCode
 		require("mini.files").setup({
-			-- icons are showing as "?" because of not having nerd-font
-			-- so, removing the icons (prefix). When nerdfont is installed
-			-- 1 line below can be deleted and it will show the files/directory
-			-- icons.
-			-- content = { prefix = function() end },
 			vim.keymap.set("n", "<leader>p", "<CMD>lua MiniFiles.open()<CR>", { desc = "Open mini.files" }),
 		})
 
-		-- Simple and easy statusline.
-		--  You could remove this setup call if you don't like it,
-		--  and try some other statusline plugin
+		-- Simple and easy statusline
 		local statusline = require("mini.statusline")
-		-- set use_icons to true if you have a Nerd Font
-		statusline.setup({ use_icons = vim.g.have_nerd_font })
-
-		-- You can configure sections in the statusline by overriding their
-		-- default behavior. For example, here we set the section for
-		-- cursor location to LINE:COLUMN
-		---@diagnostic disable-next-line: duplicate-set-field
-		statusline.section_location = function()
+		statusline.setup()
+		-- Set the section for cursor location to LINE:COLUMN
+		-- Default is <cursor line>|<total lines>│<cursor column>|<total columns>
+		statusline.section_location = function() -- customizing statusline is expected by creating a function
 			return "%2l:%-2v"
 		end
 
-		-- ... and there is more!
-		--  Check out: https://github.com/echasnovski/mini.nvim
+		-- Autopairs
+		require("mini.pairs").setup()
 	end,
 }

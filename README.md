@@ -1,4 +1,3 @@
-
 # Config/dot files
 
 ## Things to install before cloning this repo
@@ -70,5 +69,3 @@ Syntax highlighting for zsh
 ```sh
 brew install zsh-syntax-highlighting
 ```
-
-
