@@ -6,11 +6,10 @@
 # * for more info on which color these color-codes represent check:
 #       https://hexdocs.pm/color_palette/color_groups.html
 
-git_color=$(tput setaf 27);
-dir_color=$(tput setaf 94);
-branch_color=$(tput setaf 160);
+git_color=$(tput setaf 33);
+dir_color=$(tput setaf 136);
+branch_color=$(tput setaf 196);
 icon_color=$(tput setaf 178);
-dot_color=$(tput setaf 145);
 
 bold=$(tput bold); # makes text bold
 reset=$(tput sgr0); # resets all attributes (colors, bold, etc.) to their default
