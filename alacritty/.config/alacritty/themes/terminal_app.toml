@@ -1,0 +1,15 @@
+[colors]
+
+[colors.primary]
+background = "#1c1c1c"  # black background
+foreground = "#ffffe3"  # ivory white text
+
+[colors.normal]
+black   = "#000000"
+red     = "#cd4632"
+green   = "#45c03a"
+yellow  = "#b6b43b"
+blue    = "#5a3fd3"
+magenta = "#d94ed6"
+cyan    = "#46c2cd"
+white   = "#bfbfbf"
