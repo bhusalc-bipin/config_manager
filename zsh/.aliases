@@ -1,67 +1,3 @@
-# temporary aliases
-
-# tmux aliases
-
-# fuzzy find session name and open it
-tmuxat() {
-	local session=$(tmux ls | fzf) 2> /dev/null 
-	# current data stored in session is of format "session_name: some meta info"
-	# so need to extract session name which is before the colon (:) sign. Hence,
-	# using %%:* to extract substring before first colon (:) in session.
-	[[ $session ]] && tmux a -t "${session%%:*}"
-}
-
-# fzf aliases
-
-# Hints on how to ignore stuffs while using find was taken from
-# https://stackoverflow.com/a/72487775
-# https://stackoverflow.com/a/1489405
-
-# Ignore .git and node_modules dir
-toIgnore=(-name .git -prune -false -o -name node_modules -prune -false -o)
-
-# Find and change dir
-sdh() {
-	local dir=$(find ~/. "${toIgnore[@]}" -type d | fzf)
-	[[ $dir ]] && cd "$dir"
-}
-
-sdcm() {
-	local dir=$(find ~/config_manager/. "${toIgnore[@]}" -type d | fzf)
-	[[ $dir ]] && cd "$dir"
-}
-
-sdp() {
-	local dir=$(find ~/Desktop/Projects/. "${toIgnore[@]}" -type d | fzf)
-	[[ $dir ]] && cd "$dir"
-}
-
-sdl() {
-	local dir=$(find ~/Desktop/sprint_learning/. "${toIgnore[@]}" -type d | fzf)
-	[[ $dir ]] && cd "$dir"
-}
-
-# Find and open file with nvim
-sfh() {
-	local file=$(find ~/. "${toIgnore[@]}" -type f | fzf)
-	[[ $file ]] && nvim "$file"
-}
-
-sfcm() {
-	local file=$(find ~/config_manager/. "${toIgnore[@]}" -type f | fzf)
-	[[ $file ]] && nvim "$file"
-}
-
-sfp() {
-	local file=$(find ~/Desktop/Projects/. "${toIgnore[@]}" -type f | fzf)
-	[[ $file ]] && nvim "$file"
-}
-
-sfl() {
-	local file=$(find ~/Desktop/sprint_learning/. "${toIgnore[@]}" -type f | fzf)
-	[[ $file ]] && nvim "$file"
-}
-
 # command aliases
 
 alias ls="ls --color"
@@ -83,11 +19,22 @@ alias dt="cd ~/Desktop"
 alias spl="cd ~/Desktop/sprint_learning"
 alias p="cd ~/Desktop/Projects"
 
-# application(s) aliases
-
 # function commands
 
 mkcd () {
 	mkdir "$1"
 	cd "$1"
 }
+
+run_tmux_sessionizer(){
+	~/.config/tmux/scripts/tmux_sessionizer.zsh
+}
+alias a="run_tmux_sessionizer"
+
+# directories to ignore while searching
+toIgnore=(-name .git -prune -false -o -name node_modules -prune -false -o)
+find_and_open_file_with_nvim() {
+	local file=$(find ~/config_manager ~/Desktop/Projects ~/Desktop/sprint_learning "${toIgnore[@]}" -type f | fzf)
+	[[ $file ]] && nvim "$file"
+}
+alias s="find_and_open_file_with_nvim"
