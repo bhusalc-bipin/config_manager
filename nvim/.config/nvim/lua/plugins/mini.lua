@@ -19,10 +19,6 @@ return {
 		-- - sr)'  - [S]urround [R]eplace [)] [']
 		require("mini.surround").setup()
 
-		-- Helps visualize scope with animated vertical line
-		-- Helpful for languages where indentation is important. Example: Python
-		require("mini.indentscope").setup()
-
 		-- Helps navigate and manipulate file system like an file explorer in VSCode
 		require("mini.files").setup({
 			vim.keymap.set("n", "<leader>p", "<CMD>lua MiniFiles.open()<CR>", { desc = "Open mini.files" }),
