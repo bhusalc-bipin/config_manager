@@ -23,7 +23,6 @@ return {
 		formatters_by_ft = {
 			c = { "clang-format" },
 			lua = { "stylua" },
-			python = { "ruff_format" },
 			htmldjango = { "djlint" },
 
 			html = { "prettierd" },
@@ -34,6 +33,8 @@ return {
 			typescriptreact = { "prettierd" }, -- React / TSX
 			json = { "prettierd" },
 			markdown = { "prettierd" },
+
+			python = { "isort", "ruff_format" },
 		},
 
 		format_on_save = {

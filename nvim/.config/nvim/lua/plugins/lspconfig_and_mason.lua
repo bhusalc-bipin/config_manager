@@ -168,10 +168,6 @@ return {
 			-- for linting and formatting use ruff
 			pyright = {
 				settings = {
-					pyright = {
-						-- Using Ruff's import organizer
-						disableOrganizeImports = true,
-					},
 					python = {
 						analysis = {
 							-- Ignore all files for analysis to exclusively use Ruff for linting
@@ -225,6 +221,7 @@ return {
 			"stylua", -- used to format Lua code
 			"prettierd", -- used to format html, css, js, ts...etc
 			"djlint", -- used to format htmldjango
+			"isort", -- used to sort python imports (better than ruff and pyright)
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
