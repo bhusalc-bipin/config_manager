@@ -163,7 +163,7 @@ return {
 		local servers = {
 			clangd = {},
 			gopls = {},
-			pyright = {},
+			ruff = {},
 			-- rust_analyzer = {},
 			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 			--
@@ -206,9 +206,8 @@ return {
 			-- all these stuffs are used by conform.nvim (which is configued in it's own file)
 			"clang-format", -- used to format c code
 			"stylua", -- used to format Lua code
-			"isort", -- used to sort python import statements
-			"black", -- used to format python code
 			"prettierd", -- used to format html, css, js, ts...etc
+			"djlint", -- used to format htmldjango
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
