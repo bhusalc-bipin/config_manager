@@ -168,6 +168,10 @@ return {
 			-- for linting and formatting use ruff
 			pyright = {
 				settings = {
+					pyright = {
+						-- Using isort for instead
+						disableOrganizeImports = true,
+					},
 					python = {
 						analysis = {
 							-- Ignore all files for analysis to exclusively use Ruff for linting
