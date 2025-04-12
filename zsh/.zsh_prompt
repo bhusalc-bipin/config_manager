@@ -1,0 +1,57 @@
+# Configure how terminal looks
+
+# * `tput` accesses the terminal capabilities (defined in terminfo database).
+# * `setaf` stands for "set ANSI foreground", and it changes the text color.
+# * numder at the end is the argument passed to `setaf`, and it represents a ANSI color.
+# * for more info on which color these color-codes represent check:
+#       https://hexdocs.pm/color_palette/color_groups.html
+
+
+dir_color=$(tput setaf 73)
+branch_color=$(tput setaf 133)
+git_indicators_color=$(tput setaf 211)
+icon_color=$(tput setaf 178);
+
+reset=$(tput sgr0); # resets all attributes (colors, bold, etc.) to their default
+
+# utf code for icons (need nerd font)
+right_angle='\uf105'
+git_branch_icon='\uf418'
+
+# find and show git related info if in git repository
+function git_info() {
+  # check if inside git repository
+  git rev-parse --is-inside-work-tree &>/dev/null || return
+
+  # find branch name if in detached mode, return short commit hash
+  local branch
+  branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+
+  # presence flags to represent git info(s)
+  local indicators=""
+
+  git diff --cached --quiet || indicators+='+' # stagged file(s)
+  git diff --quiet || indicators+='~' # unstagged file(s)
+  [[ -n $(git ls-files --others --exclude-standard) ]] && indicators+='?' # untracked file(s)
+  [[ -n $(git diff --name-only --diff-filter=U) ]] && indicators+='!' # file(s) with conflict
+
+  # ahead/behind
+  local remote ahead behind
+  remote=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null)
+  if [[ -n $remote ]]; then
+    ahead=$(git rev-list --left-right --count HEAD...$remote 2>/dev/null | awk '{print $1}')
+    behind=$(git rev-list --left-right --count HEAD...$remote 2>/dev/null | awk '{print $2}')
+    [[ $ahead -gt 0 ]] && indicators+='↑' # commit(s) ahead of upstream
+    [[ $behind -gt 0 ]] && indicators+='↓' # commit(s) behind upstream
+  fi
+
+  # format output
+  local git_info="on ${branch_color}${git_branch_icon} $branch ${git_indicators_color}[$indicators]"
+  echo $git_info
+}
+
+dir_path=(%2~) # find the path to current dir and show only 2 trailing directory
+setopt prompt_subst
+PROMPT='
+${dir_color}${dir_path}${reset} $(git_info)${reset}
+${icon_color}$(printf ${right_angle})${reset} '

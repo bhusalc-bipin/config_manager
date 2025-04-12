@@ -1,0 +1,34 @@
+# command aliases
+
+alias ls="ls --color"
+alias nq="networkQuality -v"
+
+# Neovim alias
+
+alias n="nvim ."
+
+# directory aliases
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+alias pd="cd -"
+
+alias spl="cd ~/pukka_dir/sprint_learning"
+alias p="cd ~/pukka_dir/projects"
+
+# function command(s)
+
+mkcd() {
+	mkdir "$1"
+	cd "$1"
+}
+
+run_tmux_sessionizer(){
+	~/.config/tmux/scripts/tmux_sessionizer.zsh
+}
+
+# keybind(s)
+
+bindkey -s ^f "run_tmux_sessionizer\n"

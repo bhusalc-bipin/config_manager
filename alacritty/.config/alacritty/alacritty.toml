@@ -1,0 +1,6 @@
+[window]
+startup_mode = "Maximized"
+
+[font]
+normal = { family = "JetBrainsMonoNL Nerd Font", style = "Thin" }
+size = 16
