@@ -1,7 +1,7 @@
 # command aliases
 
 alias ls="ls --color"
-alias nq="networkQuality -v"
+alias nq="networkQuality"
 
 # Neovim alias
 
