@@ -23,7 +23,7 @@ function git_info() {
   # check if inside git repository
   git rev-parse --is-inside-work-tree &>/dev/null || return
 
-  # find branch name if in detached mode, return short commit hash
+  # find branch name OR if in detached mode return short commit hash
   local branch
   branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
 
@@ -35,7 +35,7 @@ function git_info() {
   [[ -n $(git ls-files --others --exclude-standard) ]] && indicators+='?' # untracked file(s)
   [[ -n $(git diff --name-only --diff-filter=U) ]] && indicators+='!' # file(s) with conflict
 
-  # ahead/behind
+  # ahead/behind from remote
   local remote ahead behind
   remote=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null)
   if [[ -n $remote ]]; then
