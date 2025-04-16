@@ -1,10 +1,13 @@
 #!/usr/bin/env zsh
 
-# directories to ignore while using find
-toIgnore=(-name .git -prune -false -o -name node_modules -prune -false -o)
+dirs_to_search=(
+	~/config_manager_v2
+	~/pukka_dir/projects
+	~/pukka_dir/sprint_learning
+)
 
-# fuzzy find the directories within specified paths, excluding those listed in `toIgnore`
-dir_path=$(find ~/config_manager_v2 ~/pukka_dir/projects ~/pukka_dir/sprint_learning "${toIgnore[@]}" -type d | fzf)
+# need to install fd
+dir_path=$(fd --type d . "${dirs_to_search[@]}" | fzf)
 
 # exit the script if no directory was selected
 [[ -z $dir_path ]] && exit 0
