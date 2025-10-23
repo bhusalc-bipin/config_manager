@@ -15,8 +15,8 @@ alias ....="cd ../../.."
 
 alias pd="cd -"
 
-alias spl="cd ~/pukka_dir/sprint_learning"
-alias p="cd ~/pukka_dir/projects"
+alias spl="cd ~/Desktop/sprint_learning"
+alias p="cd ~/Desktop/projects"
 
 # function command(s)
 
