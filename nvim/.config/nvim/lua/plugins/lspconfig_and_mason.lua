@@ -14,7 +14,6 @@ return {
 			opts = {
 				notification = {
 					window = {
-						normal_hl = "FidgetBg", -- custom bg (see nord colorscheme)
 						winblend = 0, -- 0 = fully opaque
 					},
 				},
