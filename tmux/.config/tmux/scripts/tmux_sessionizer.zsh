@@ -7,7 +7,7 @@ dirs_to_search=(
 )
 
 # need to install fd
-dir_path=$(fd --type d . "${dirs_to_search[@]}" | fzf)
+dir_path=$(fd --type d --hidden . "${dirs_to_search[@]}" | fzf)
 
 # exit the script if no directory was selected
 [[ -z $dir_path ]] && exit 0
