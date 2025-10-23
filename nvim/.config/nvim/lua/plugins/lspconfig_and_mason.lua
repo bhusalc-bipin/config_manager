@@ -9,7 +9,17 @@ return {
 
 		-- Useful status updates for LSP.
 		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-		{ "j-hui/fidget.nvim", opts = {} },
+		{
+			"j-hui/fidget.nvim",
+			opts = {
+				notification = {
+					window = {
+						normal_hl = "FidgetBg", -- custom bg (see nord colorscheme)
+						winblend = 0, -- 0 = fully opaque
+					},
+				},
+			},
+		},
 
 		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
 		-- used for completion, annotations and signatures of Neovim apis
