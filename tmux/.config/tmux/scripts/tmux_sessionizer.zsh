@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
 dirs_to_search=(
-	~/config_manager_v2
-	~/pukka_dir/projects
-	~/pukka_dir/sprint_learning
+	~/config_manager
+	~/Desktop/projects
+	~/Desktop/sprint_learning
 )
 
 # need to install fd
