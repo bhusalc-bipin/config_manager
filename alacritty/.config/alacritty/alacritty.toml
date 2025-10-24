@@ -1,6 +1,10 @@
 [window]
 startup_mode = "Maximized"
+decorations_theme_variant = "Dark"
 
 [font]
 normal = { family = "JetBrainsMonoNL Nerd Font", style = "Thin" }
 size = 16
+
+[mouse]
+hide_when_typing = true
