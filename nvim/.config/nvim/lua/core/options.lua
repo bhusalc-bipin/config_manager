@@ -39,7 +39,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 250 -- default 4000 ms
 
 -- Decrease mapped sequence wait time i.e. time neovim waits for a mapped sequence to complete
-vim.opt.timeoutlen = 300 -- default 1000 ms
+vim.opt.timeoutlen = 500 -- default 1000 ms
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
