@@ -4,8 +4,8 @@ return {
 	version = "1.*",
 	dependencies = {
 		{
-			"L3MON4D3/LuaSnip", -- snippet engine
-			-- follow latest release
+			"L3MON4D3/LuaSnip", -- Snippet engine
+			-- Follow latest release
 			version = "2.*",
 			build = "make install_jsregexp",
 			opts = {},
@@ -14,7 +14,7 @@ return {
 	},
 	opts = {
 		keymap = {
-			preset = "default", -- mappings similar to built-in completions (`<c-y>`to accept)
+			preset = "default", -- Mappings similar to built-in completions (`<c-y>`to accept)
 		},
 
 		appearance = {
@@ -24,11 +24,11 @@ return {
 		},
 
 		completion = {
-			-- only show the documentation popup when manually triggered (<ctr + space>)
+			-- Only show the documentation popup when manually triggered (<ctr + space>)
 			documentation = { auto_show = false },
 		},
 
-		-- show a signature help window while typing arguments for a function
+		-- Show a signature help window while typing arguments for a function
 		signature = { enabled = true },
 
 		snippets = { preset = "luasnip" },
@@ -38,7 +38,7 @@ return {
 			providers = {
 				lazydev = {
 					module = "lazydev.integrations.blink",
-					-- make lazydev completions top priority (see `:h blink.cmp`)
+					-- Make lazydev completions top priority (see `:h blink.cmp`)
 					score_offset = 100,
 				},
 			},

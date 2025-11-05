@@ -5,7 +5,7 @@ return {
 	event = "VimEnter",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = {
-		-- don't show icons in the sign column
+		-- Don't show icons in the sign column
 		signs = false,
 	},
 }

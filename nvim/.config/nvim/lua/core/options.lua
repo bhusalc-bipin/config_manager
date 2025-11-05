@@ -63,3 +63,6 @@ vim.opt.colorcolumn = "80"
 
 -- Highlight all matches of your search pattern in the current buffer
 vim.opt.hlsearch = true
+
+-- Set a default border style for floating windows
+vim.opt.winborder = "single"

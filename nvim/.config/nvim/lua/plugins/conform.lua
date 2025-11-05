@@ -1,6 +1,8 @@
--- helps with (auto)formatting the code
+-- Helps with (auto)formatting the code
 return {
 	"stevearc/conform.nvim",
+	event = { "BufWritePre" },
+	cmd = { "ConformInfo" },
 	keys = {
 		{
 			"<leader>f",
@@ -15,23 +17,23 @@ return {
 		notify_on_error = true,
 		notify_no_formatters = true,
 
-		-- enable auto format
+		-- Enable auto format
 		format_on_save = {
-			-- time in millisecond to block for formatting. No effect if async = true
+			-- Time in millisecond to block for formatting. No effect if async = true
 			timeout_ms = 500,
-			-- configure if and when LSP should be used for formatting
+			-- Configure if and when LSP should be used for formatting
 			-- "fallback": LSP formatting is used when no other formatters are available
 			lsp_format = "fallback",
 		},
 		formatters_by_ft = {
-			-- all these packages are installed by mason, so if you need to add more, make
-			-- sure to include that in mason install list in `nvim_lspconfig_and_mason.lua` file
+			-- Make sure the following stuffs are in `mason-tool-installer` ensure install
+			-- (see `nvim_lspconfig.lua` file)
 			lua = { "stylua" },
 			c = { "clang-format" },
 			cpp = { "clang-format" },
 			go = { "goimports", "gofmt" },
 			rust = { "rustfmt" },
-			python = { "isort", "ruff_format" },
+			python = { "ruff_organize_imports", "ruff_format" },
 			markdown = { "prettierd" },
 		},
 	},
