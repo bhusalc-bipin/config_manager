@@ -1,3 +1,6 @@
+[env]
+term = "xterm-256color"
+
 [window]
 startup_mode = "Maximized"
 decorations_theme_variant = "Dark"
@@ -8,3 +11,6 @@ size = 16
 
 [mouse]
 hide_when_typing = true
+
+[colors.primary]
+background = "#101010"

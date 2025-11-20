@@ -1,3 +1,5 @@
+vim.opt.termguicolors = true
+
 -- Set tabstops
 vim.opt.tabstop = 4 -- number of spaces that a tab character (\t) represents
 vim.opt.softtabstop = 4 -- number of spaces a tab key press inserts or backspace removes when editing
