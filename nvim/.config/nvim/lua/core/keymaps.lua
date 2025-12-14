@@ -10,3 +10,14 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- Move selected lines up or down with shift+j or shift+k
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Toogle diagnostics
+vim.keymap.set("n", "<leader>td", function()
+	if vim.diagnostic.is_enabled() then
+		vim.diagnostic.enable(false)
+		vim.print("Diagnostics disabled!!!")
+	else
+		vim.diagnostic.enable()
+		vim.print("Diagnostics enabled!!!")
+	end
+end, { desc = "toggle diagnostic" })

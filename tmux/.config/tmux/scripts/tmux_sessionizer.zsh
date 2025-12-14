@@ -2,7 +2,7 @@
 
 dirs_to_search=(
 	~/config_manager
-	~/Desktop/projects
+	~/dev
 )
 
 # need to install fd

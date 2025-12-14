@@ -1,0 +1,20 @@
+services:
+  dev:
+    build:
+      context: .
+    image: linux_devbox:fedora
+    container_name: linux_devbox
+    working_dir: /work
+    command: sleep infinity
+
+    volumes:
+      - ~/dev:/work
+      - pip_cache:/root/.cache/pip
+      - cargo_home:/root/.cargo
+
+    tty: true
+    stdin_open: true
+
+volumes:
+  pip_cache:
+  cargo_home:
