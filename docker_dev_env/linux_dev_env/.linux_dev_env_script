@@ -1,11 +1,6 @@
 export LINUX_DEV_DIR="$HOME/linux_dev_env"
 
-devup() {
-  (cd "$LINUX_DEV_DIR" && docker compose up -d --build)
-}
-
 dev() {
-  devup
   (cd "$LINUX_DEV_DIR" && docker compose exec dev bash -l)
 }
 

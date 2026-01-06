@@ -15,9 +15,6 @@ alias ....="cd ../../.."
 
 alias pd="cd -"
 
-alias spl="cd ~/Desktop/sprint_learning"
-alias p="cd ~/Desktop/projects"
-
 # function command(s)
 
 mkcd() {
