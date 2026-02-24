@@ -3,6 +3,7 @@ term = "xterm-256color"
 
 [window]
 startup_mode = "Maximized"
+decorations = "None"
 decorations_theme_variant = "Dark"
 
 [font]
