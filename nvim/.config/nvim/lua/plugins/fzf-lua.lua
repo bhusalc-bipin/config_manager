@@ -83,9 +83,8 @@ return {
 		},
 	},
 	config = function()
-		-- FIXME: Getting an error message when use <leader>ca for code actions
-		-- Don't know why. So, temporary fix for now.
-		-- Error message: "FzfLua is not currently registered as 'vim.ui.select' backend, use 'silent=true'
+		-- NOTE: without the following line, I get this message when performing code actions:
+		-- "FzfLua is not currently registered as 'vim.ui.select' backend, use 'silent=true'
 		-- to hide this message or register globally using ':FzfLua register_ui_select'."
 		require("fzf-lua").register_ui_select({ silent = true })
 	end,
