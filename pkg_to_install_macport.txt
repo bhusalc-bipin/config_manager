@@ -1,0 +1,16 @@
+alacritty
+bat
+clang-22
+fd
+fzf
+gcc15
+gh
+git
+go
+neovim
+python314
+rust
+stow
+tmux
+tree
+zsh-syntax-highlighting
