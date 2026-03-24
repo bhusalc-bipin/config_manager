@@ -1,6 +1,3 @@
--- clear highlight on search after pressing <Esc> in normal mode
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-
 -- Use CTRL+<hjkl> to switch between windows
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
@@ -21,3 +18,16 @@ vim.keymap.set("n", "<leader>td", function()
 		vim.print("Diagnostics enabled!!!")
 	end
 end, { desc = "toggle diagnostic" })
+
+-- Close floating window or clear highlight on search
+vim.keymap.set("n", "<Esc>", function()
+	for _, win in ipairs(vim.api.nvim_list_wins()) do
+		local config = vim.api.nvim_win_get_config(win)
+		if config.relative ~= "" then
+			vim.api.nvim_win_close(win, true)
+			return
+		end
+	end
+	-- clear highlight on search after pressing <Esc> in normal mode
+	vim.cmd.nohlsearch()
+end, { desc = "Close floating window or clear search" })
