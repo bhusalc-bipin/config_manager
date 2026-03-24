@@ -12,16 +12,18 @@ return {
 					lookahead = true,
 
 					keymaps = {
-						["af"] = { query = "@function.outer", desc = "Select around a function" },
-						["if"] = { query = "@function.inner", desc = "Select inside a function" },
-						["ac"] = { query = "@class.outer", desc = "Select around a class" },
-						["ic"] = { query = "@class.inner", desc = "Select inside a class" },
-						["ao"] = { query = "@loop.outer", desc = "Select around a loop" },
-						["io"] = { query = "@loop.inner", desc = "Select inside a loop" },
-						["am"] = { query = "@comment.outer", desc = "Select around a comment" },
-						["im"] = { query = "@comment.inner", desc = "Select inside a comment" },
-						["ad"] = { query = "@conditional.outer", desc = "Select around a conditional" },
-						["id"] = { query = "@conditional.inner", desc = "Select inside a conditional" },
+						["af"] = { query = "@function.outer", desc = "Around a function" },
+						["if"] = { query = "@function.inner", desc = "Inside a function" },
+						["ac"] = { query = "@class.outer", desc = "Around a class" },
+						["ic"] = { query = "@class.inner", desc = "Inside a class" },
+						["al"] = { query = "@loop.outer", desc = "Around a loop" },
+						["il"] = { query = "@loop.inner", desc = "Inside a loop" },
+						["am"] = { query = "@comment.outer", desc = "Around a comment" },
+						["im"] = { query = "@comment.inner", desc = "Inside a comment" },
+						["ai"] = { query = "@conditional.outer", desc = "Around a conditional" },
+						["ii"] = { query = "@conditional.inner", desc = "Inside a conditional" },
+						["aa"] = { query = "@parameter.outer", desc = "Around parameter" },
+						["ia"] = { query = "@parameter.inner", desc = "Inside parameter" },
 					},
 				},
 				move = {
@@ -29,7 +31,7 @@ return {
 					goto_next_start = {
 						["]f"] = { query = "@function.outer", desc = "Next function start" },
 						["]c"] = { query = "@class.outer", desc = "Next class start" },
-						["]o"] = { query = "@loop.outer", desc = "Next loop start" },
+						["]l"] = { query = "@loop.outer", desc = "Next loop start" },
 						["]m"] = { query = "@comment.outer", desc = "Next comment start" },
 					},
 					goto_next_end = {
