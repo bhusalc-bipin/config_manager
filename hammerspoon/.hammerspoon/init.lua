@@ -17,3 +17,7 @@ end)
 hs.hotkey.bind({ "ctrl", "cmd" }, "z", function()
 	hs.application.launchOrFocus("Zotero")
 end)
+
+hs.hotkey.bind({ "ctrl", "cmd" }, "x", function()
+	hs.application.launchOrFocus("Visual Studio Code")
+end)
