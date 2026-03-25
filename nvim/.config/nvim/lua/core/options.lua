@@ -61,7 +61,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- Create a vertical line in screen at the given column position
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "100"
 
 -- Highlight all matches of your search pattern in the current buffer
 vim.opt.hlsearch = true
