@@ -37,6 +37,13 @@
     "editor.bracketPairColorization.enabled": true,
     // Highlight only the bracket pair your cursor is currently inside
     "editor.guides.bracketPairs": "active",
+    // ─── Terminal ────────────────────────────────────────────────────────────────
+    // Font size in the integrated terminal
+    "terminal.integrated.fontSize": 14,
+    // How many lines of terminal output to keep in scroll history
+    "terminal.integrated.scrollback": 5000,
+    // Disable sticky scroll in the terminal (stops code scopes sticking to the top)
+    "terminal.integrated.stickyScroll.enabled": false,
     // ─── Colors ──────────────────────────────────────────────────────────────────
     "workbench.colorCustomizations": {
         // Color of the vertical ruler lines at col 80 and 120 — dark grey, visible but subtle
@@ -159,13 +166,6 @@
     "github.copilot.chat.startupNotification": false,
     // Hide the Copilot Chat button from the top command center bar
     "chat.commandCenter.enabled": false,
-    // ─── Terminal ────────────────────────────────────────────────────────────────
-    // Font size in the integrated terminal
-    "terminal.integrated.fontSize": 14,
-    // How many lines of terminal output to keep in scroll history
-    "terminal.integrated.scrollback": 5000,
-    // Disable sticky scroll in the terminal (stops code scopes sticking to the top)
-    "terminal.integrated.stickyScroll.enabled": false,
     // ─── Misc ────────────────────────────────────────────────────────────────────
     // Confirmation dialog when deleting files in the explorer
     "explorer.confirmDelete": true,
