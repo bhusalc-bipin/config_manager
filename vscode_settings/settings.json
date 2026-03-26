@@ -1,0 +1,176 @@
+{
+    // ─── Editor Basics ───────────────────────────────────────────────────────────
+    // Hide the welcome/startup tab when VSCode opens
+    "workbench.startupEditor": "none",
+    // Never auto-save — save intentionally with Cmd+S (like :w in Neovim)
+    "files.autoSave": "off",
+    // Font size in the editor
+    "editor.fontSize": 15,
+    // Font family — VSCode tries each font left to right, uses the first one installed
+    "editor.fontFamily": "'JetBrains Mono', 'SF Mono', Menlo, Monaco, 'Courier New', monospace",
+    // Automatically format the file using its configured formatter when you hit Cmd+S
+    "editor.formatOnSave": true,
+    // Draw vertical guide lines at column 100 as soft line-length reminders
+    "editor.rulers": [
+        100
+    ],
+    // Enable sticky scroll in the editor
+    "editor.stickyScroll.enabled": true,
+    // Show the minimap (bird's-eye view of your file) on the right side
+    "editor.minimap.enabled": true,
+    // Minimap zoom level — 1 is the smallest available
+    "editor.minimap.scale": 1,
+    // Show minimap as colored blocks instead of tiny characters — less noisy
+    "editor.minimap.renderCharacters": false,
+    // Fit the entire file into the minimap height — makes it look smaller on long files
+    "editor.minimap.size": "fit",
+    // Only render up to column 80 in minimap — keeps it narrow
+    "editor.minimap.maxColumn": 80,
+    // When multiple autocomplete suggestions exist, pre-select the most recent one you used
+    "editor.suggestSelection": "first",
+    // How many spaces a single indent level represents
+    "editor.tabSize": 4,
+    // When you press Tab, insert spaces instead of a real tab character
+    // Keeps code looking consistent across different editors and terminals
+    "editor.insertSpaces": true,
+    // Color matching brackets in different colors so they're easy to pair visually
+    "editor.bracketPairColorization.enabled": true,
+    // Highlight only the bracket pair your cursor is currently inside
+    "editor.guides.bracketPairs": "active",
+    // ─── Colors ──────────────────────────────────────────────────────────────────
+    "workbench.colorCustomizations": {
+        // Color of the vertical ruler lines at col 80 and 120 — dark grey, visible but subtle
+        "editorRuler.foreground": "#3a3a3a"
+    },
+    // ─── Python ──────────────────────────────────────────────────────────────────
+    // Use Pylance as the Python language server (autocomplete, go-to-def, type checking)
+    "python.languageServer": "Pylance",
+    // Type checking level — basic catches common mistakes without being too strict
+    // Options: off, basic, standard, strict
+    "python.analysis.typeCheckingMode": "basic",
+    // Automatically suggest imports when you type a known symbol
+    "python.analysis.autoImportCompletions": true,
+    // Show inferred variable types inline next to variable declarations
+    "python.analysis.inlayHints.variableTypes": true,
+    // Show inferred return types inline next to function definitions
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "[python]": {
+        // Use Ruff as the Python formatter (replaces Black + isort + flake8 in one tool)
+        // Requires ruff binary: pip3 install ruff
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.codeActionsOnSave": {
+            // Auto-fix lint warnings on save (unused variables, bad patterns, etc.)
+            "source.fixAll.ruff": "explicit",
+            // Auto-sort and clean up imports on save
+            "source.organizeImports.ruff": "explicit"
+        }
+    },
+    // ─── C / C++ ─────────────────────────────────────────────────────────────────
+    // Disable Microsoft's built-in IntelliSense engine — clangd handles this instead
+    // Keeping both active causes duplicate autocomplete, errors, and slowness
+    "C_Cpp.intelliSenseEngine": "disabled",
+    // Disable MS autocomplete — clangd provides this
+    "C_Cpp.autocomplete": "disabled",
+    // Disable MS error squiggles — clangd provides these too
+    // Note: ms-vscode.cpptools is still installed for its debugger (gdb/lldb),
+    // just its IntelliSense features are turned off
+    "C_Cpp.errorSquiggles": "disabled",
+    // Point VSCode to the MacPorts clangd instead of Apple's older system clangd
+    // Apple's clangd (from Xcode tools) is outdated and doesn't support c++23
+    "clangd.path": "/opt/local/bin/clangd-mp-22",
+    // Flags used when clangd can't find a compile_flags.txt or compile_commands.json
+    // Acts as a safety net for single files or new projects not yet configured
+    "clangd.fallbackFlags": [
+        "-std=c++23", // Use C++23 standard
+        "-Wall", // Enable common warnings
+        "-Wextra" // Enable extra warnings beyond -Wall
+    ],
+    "clangd.arguments": [
+        // Index the entire codebase in the background so go-to-definition and
+        // find-references work across all files, not just the currently open one
+        "--background-index",
+        // Enable clang-tidy checks inline — catches uninitialized variables,
+        // performance issues, and style problems beyond compiler warnings
+        "--clang-tidy",
+        // Show full function signatures in autocomplete, not just the function name
+        "--completion-style=detailed",
+        // When you accept an autocomplete suggestion, automatically add the
+        // required #include at the top of the file (iwyu = include what you use)
+        "--header-insertion=iwyu",
+        // Show a lightbulb suggestion when you use something that needs
+        // an #include you haven't added yet
+        "--suggest-missing-includes"
+    ],
+    "[c]": {
+        // Use clangd as the formatter for C files (respects .clang-format)
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4
+    },
+    "[cpp]": {
+        // Use clangd as the formatter for C++ files (respects .clang-format)
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4
+    },
+    // ─── Go ──────────────────────────────────────────────────────────────────────
+    // Enable gopls — Go's official language server
+    // Handles autocomplete, go-to-definition, refactoring (equivalent of clangd for C++)
+    "go.useLanguageServer": true,
+    // Linter to use — golangci-lint bundles many linters in one tool
+    // Need to install golangci-lint separately
+    "go.lintTool": "golangci-lint",
+    // Run linter on the whole package when you save, not just the current file
+    "go.lintOnSave": "package",
+    // Run go vet on save — Go's built-in checker for suspicious code
+    // e.g. wrong format strings in Printf, unreachable code, etc.
+    "go.vetOnSave": "package",
+    // Don't auto-run tests on save — too noisy for everyday use
+    "go.testOnSave": false,
+    // Don't auto-run test coverage on save — same reason
+    "go.coverOnSave": false,
+    // Show inferred variable types inline next to assignments
+    "go.inlayHints.assignVariableTypes": true,
+    // Show field names inline in composite literals e.g. {Name: "Alice", Age: 30}
+    "go.inlayHints.compositeLiteralFields": true,
+    // Show type parameters inline for generic functions
+    "go.inlayHints.functionTypeParameters": true,
+    // Show parameter names inline at call sites e.g. connect(host: "localhost", port: 8080)
+    "go.inlayHints.parameterNames": true,
+    // Show inferred types for range loop variables inline
+    "go.inlayHints.rangeVariableTypes": true,
+    "[go]": {
+        // Use the official Go formatter (gofmt) — non-negotiable in Go, everyone uses it
+        "editor.defaultFormatter": "golang.go",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        // Go uses real tabs, not spaces — gofmt enforces this
+        // This overrides the global insertSpaces: true just for Go files
+        "editor.insertSpaces": false,
+        "editor.codeActionsOnSave": {
+            // Auto-sort and clean up Go imports on save
+            "source.organizeImports": "explicit"
+        }
+    },
+    // ─── Copilot ─────────────────────────────────────────────────────────────────
+    // Don't show Copilot startup notification when opening a project
+    "github.copilot.chat.startupNotification": false,
+    // Hide the Copilot Chat button from the top command center bar
+    "chat.commandCenter.enabled": false,
+    // ─── Terminal ────────────────────────────────────────────────────────────────
+    // Font size in the integrated terminal
+    "terminal.integrated.fontSize": 14,
+    // How many lines of terminal output to keep in scroll history
+    "terminal.integrated.scrollback": 5000,
+    // Disable sticky scroll in the terminal (stops code scopes sticking to the top)
+    "terminal.integrated.stickyScroll.enabled": false,
+    // ─── Misc ────────────────────────────────────────────────────────────────────
+    // Confirmation dialog when deleting files in the explorer
+    "explorer.confirmDelete": true,
+    // Show a navigation breadcrumb bar at the top of the editor
+    // Displays your current location e.g: main.cpp > main() > if block
+    "breadcrumbs.enabled": true,
+    "claudeCode.preferredLocation": "panel"
+}
