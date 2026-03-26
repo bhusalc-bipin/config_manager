@@ -172,5 +172,5 @@
     // Show a navigation breadcrumb bar at the top of the editor
     // Displays your current location e.g: main.cpp > main() > if block
     "breadcrumbs.enabled": true,
-    "claudeCode.preferredLocation": "panel"
+    // ─── Auto added by VSCode ────────────────────────────────────────────────────
 }
