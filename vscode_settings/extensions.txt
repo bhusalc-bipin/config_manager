@@ -1,4 +1,5 @@
 anthropic.claude-code
+asvetliakov.vscode-neovim
 charliermarsh.ruff
 github.copilot-chat
 golang.go
