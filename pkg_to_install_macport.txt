@@ -7,6 +7,7 @@ gcc15
 gh
 git
 go
+golangci-lint
 neovim
 python314
 rust
