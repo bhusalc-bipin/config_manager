@@ -18,6 +18,8 @@
     "editor.rulers": [
         100
     ],
+    // Show relative line numbers
+    "editor.lineNumbers": "relative",
     // Enable sticky scroll in the editor
     "editor.stickyScroll.enabled": true,
     // Show the minimap (bird's-eye view of your file) on the right side
@@ -173,4 +175,8 @@
     "breadcrumbs.enabled": true,
     // ─── Auto added by VSCode ────────────────────────────────────────────────────
     "claudeCode.preferredLocation": "panel",
+    "window.newWindowProfile": "Default",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
 }
