@@ -5,9 +5,13 @@
     // Never auto-save — save intentionally with Cmd+S (like :w in Neovim)
     "files.autoSave": "off",
     // Font size in the editor
-    "editor.fontSize": 15,
+    "editor.fontSize": 14,
     // Font family — VSCode tries each font left to right, uses the first one installed
-    "editor.fontFamily": "'JetBrains Mono', 'SF Mono', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "'SF Mono','JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": false,
+    "editor.fontWeight": "100",
+    // For the integrated terminal
+    "terminal.integrated.fontFamily": "'JetBrainsMonoNL Nerd Font', 'SF Mono', 'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
     // Automatically format the file using its configured formatter when you hit Cmd+S
     "editor.formatOnSave": true,
     // Draw vertical guide lines at column 100 as soft line-length reminders
@@ -161,11 +165,6 @@
             "source.organizeImports": "explicit"
         }
     },
-    // ─── Copilot ─────────────────────────────────────────────────────────────────
-    // Don't show Copilot startup notification when opening a project
-    "github.copilot.chat.startupNotification": false,
-    // Hide the Copilot Chat button from the top command center bar
-    "chat.commandCenter.enabled": false,
     // ─── Misc ────────────────────────────────────────────────────────────────────
     // Confirmation dialog when deleting files in the explorer
     "explorer.confirmDelete": true,
@@ -173,4 +172,5 @@
     // Displays your current location e.g: main.cpp > main() > if block
     "breadcrumbs.enabled": true,
     // ─── Auto added by VSCode ────────────────────────────────────────────────────
+    "claudeCode.preferredLocation": "panel",
 }
