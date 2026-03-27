@@ -4,6 +4,7 @@ charliermarsh.ruff
 github.copilot-chat
 golang.go
 llvm-vs-code-extensions.vscode-clangd
+mechatroner.rainbow-csv
 ms-azuretools.vscode-containers
 ms-python.debugpy
 ms-python.python
@@ -14,4 +15,5 @@ ms-vscode-remote.remote-ssh-edit
 ms-vscode.cmake-tools
 ms-vscode.cpptools
 ms-vscode.cpptools-extension-pack
+ms-vscode.makefile-tools
 ms-vscode.remote-explorer
