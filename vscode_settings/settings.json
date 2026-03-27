@@ -4,6 +4,8 @@
     "workbench.startupEditor": "none",
     // Never auto-save — save intentionally with Cmd+S (like :w in Neovim)
     "files.autoSave": "off",
+    // Automatically format the file using its configured formatter when you hit Cmd+S
+    "editor.formatOnSave": true,
     // Font size in the editor
     "editor.fontSize": 14,
     // Font family — VSCode tries each font left to right, uses the first one installed
@@ -12,37 +14,23 @@
     "editor.fontWeight": "100",
     // For the integrated terminal
     "terminal.integrated.fontFamily": "'JetBrainsMonoNL Nerd Font', 'SF Mono', 'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
-    // Automatically format the file using its configured formatter when you hit Cmd+S
-    "editor.formatOnSave": true,
     // Draw vertical guide lines at column 100 as soft line-length reminders
     "editor.rulers": [
         100
     ],
     // Show relative line numbers
     "editor.lineNumbers": "relative",
-    // Enable sticky scroll in the editor
-    "editor.stickyScroll.enabled": true,
-    // Show the minimap (bird's-eye view of your file) on the right side
-    "editor.minimap.enabled": true,
-    // Minimap zoom level — 1 is the smallest available
-    "editor.minimap.scale": 1,
     // Show minimap as colored blocks instead of tiny characters — less noisy
     "editor.minimap.renderCharacters": false,
     // Fit the entire file into the minimap height — makes it look smaller on long files
     "editor.minimap.size": "fit",
     // Only render up to column 80 in minimap — keeps it narrow
     "editor.minimap.maxColumn": 80,
-    // When multiple autocomplete suggestions exist, pre-select the most recent one you used
-    "editor.suggestSelection": "first",
     // How many spaces a single indent level represents
     "editor.tabSize": 4,
     // When you press Tab, insert spaces instead of a real tab character
     // Keeps code looking consistent across different editors and terminals
     "editor.insertSpaces": true,
-    // Color matching brackets in different colors so they're easy to pair visually
-    "editor.bracketPairColorization.enabled": true,
-    // Highlight only the bracket pair your cursor is currently inside
-    "editor.guides.bracketPairs": "active",
     // ─── Terminal ────────────────────────────────────────────────────────────────
     // Font size in the integrated terminal
     "terminal.integrated.fontSize": 14,
@@ -52,7 +40,7 @@
     "terminal.integrated.stickyScroll.enabled": false,
     // ─── Colors ──────────────────────────────────────────────────────────────────
     "workbench.colorCustomizations": {
-        // Color of the vertical ruler lines at col 80 and 120 — dark grey, visible but subtle
+        // Color of the vertical ruler lines — dark grey, visible but subtle
         "editorRuler.foreground": "#3a3a3a"
     },
     // ─── Python ──────────────────────────────────────────────────────────────────
@@ -71,8 +59,6 @@
         // Use Ruff as the Python formatter (replaces Black + isort + flake8 in one tool)
         // Requires ruff binary: pip3 install ruff
         "editor.defaultFormatter": "charliermarsh.ruff",
-        "editor.formatOnSave": true,
-        "editor.tabSize": 4,
         "editor.codeActionsOnSave": {
             // Auto-fix lint warnings on save (unused variables, bad patterns, etc.)
             "source.fixAll.ruff": "explicit",
@@ -93,13 +79,6 @@
     // Point VSCode to the MacPorts clangd instead of Apple's older system clangd
     // Apple's clangd (from Xcode tools) is outdated and doesn't support c++23
     "clangd.path": "/opt/local/bin/clangd-mp-22",
-    // Flags used when clangd can't find a compile_flags.txt or compile_commands.json
-    // Acts as a safety net for single files or new projects not yet configured
-    "clangd.fallbackFlags": [
-        "-std=c++23", // Use C++23 standard
-        "-Wall", // Enable common warnings
-        "-Wextra" // Enable extra warnings beyond -Wall
-    ],
     "clangd.arguments": [
         // Index the entire codebase in the background so go-to-definition and
         // find-references work across all files, not just the currently open one
@@ -118,15 +97,11 @@
     ],
     "[c]": {
         // Use clangd as the formatter for C files (respects .clang-format)
-        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
-        "editor.formatOnSave": true,
-        "editor.tabSize": 4
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
     },
     "[cpp]": {
         // Use clangd as the formatter for C++ files (respects .clang-format)
-        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
-        "editor.formatOnSave": true,
-        "editor.tabSize": 4
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
     },
     // ─── Go ──────────────────────────────────────────────────────────────────────
     // Enable gopls — Go's official language server
@@ -157,8 +132,6 @@
     "[go]": {
         // Use the official Go formatter (gofmt) — non-negotiable in Go, everyone uses it
         "editor.defaultFormatter": "golang.go",
-        "editor.formatOnSave": true,
-        "editor.tabSize": 4,
         // Go uses real tabs, not spaces — gofmt enforces this
         // This overrides the global insertSpaces: true just for Go files
         "editor.insertSpaces": false,
@@ -168,11 +141,6 @@
         }
     },
     // ─── Misc ────────────────────────────────────────────────────────────────────
-    // Confirmation dialog when deleting files in the explorer
-    "explorer.confirmDelete": true,
-    // Show a navigation breadcrumb bar at the top of the editor
-    // Displays your current location e.g: main.cpp > main() > if block
-    "breadcrumbs.enabled": true,
     // ─── Auto added by VSCode ────────────────────────────────────────────────────
     "claudeCode.preferredLocation": "panel",
     "window.newWindowProfile": "Default",
