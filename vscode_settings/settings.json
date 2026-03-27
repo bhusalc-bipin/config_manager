@@ -40,8 +40,8 @@
     "terminal.integrated.stickyScroll.enabled": false,
     // ─── Colors ──────────────────────────────────────────────────────────────────
     "workbench.colorCustomizations": {
-        // Color of the vertical ruler lines — dark grey, visible but subtle
-        "editorRuler.foreground": "#3a3a3a"
+        // Color of the vertical ruler lines, visible but subtle
+        "editorRuler.foreground": "#222222"
     },
     // ─── Python ──────────────────────────────────────────────────────────────────
     // Use Pylance as the Python language server (autocomplete, go-to-def, type checking)
