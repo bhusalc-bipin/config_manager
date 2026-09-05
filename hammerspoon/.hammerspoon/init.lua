@@ -21,7 +21,13 @@ hs.hotkey.bind(appMod, "Right", function()
 end)
 
 hs.hotkey.bind(appMod, "n", function()
-	hs.application.launchOrFocus("Stickies")
+	local app = hs.application.get("Stickies")
+
+	if app then
+		app:activate(true)
+	else
+		hs.application.launchOrFocus("Stickies")
+	end
 end)
 
 hs.hotkey.bind(appMod, "c", function()
