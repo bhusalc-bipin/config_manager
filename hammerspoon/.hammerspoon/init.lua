@@ -24,6 +24,10 @@ hs.hotkey.bind(appMod, "n", function()
 	hs.application.launchOrFocus("Stickies")
 end)
 
+hs.hotkey.bind(appMod, "c", function()
+	hs.application.launchOrFocus("Calendar")
+end)
+
 hs.hotkey.bind(appMod, "o", function()
 	hs.application.launchOrFocus("Microsoft Outlook")
 end)
