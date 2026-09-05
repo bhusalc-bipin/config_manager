@@ -99,7 +99,6 @@ return {
 			rust_analyzer = {},
 			ty = {},
 			ruff = {},
-			marksman = {},
 		}
 
 		local ensure_installed = vim.tbl_keys(servers or {})
@@ -107,7 +106,6 @@ return {
 		vim.list_extend(ensure_installed, {
 			"stylua",
 			"clang-format",
-			"prettierd",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

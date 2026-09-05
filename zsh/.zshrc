@@ -1,6 +1,5 @@
-source ~/.zprofile
+source <(fzf --zsh)
 source ~/.zsh_prompt
 source ~/.aliases
 
-# use fedora linux in docker
-source ~/linux_dev_env/.linux_dev_env_script
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

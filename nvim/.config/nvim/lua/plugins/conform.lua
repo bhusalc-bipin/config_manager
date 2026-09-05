@@ -34,7 +34,6 @@ return {
 			go = { "goimports", "gofmt" },
 			rust = { "rustfmt" },
 			python = { "ruff_organize_imports", "ruff_format" },
-			markdown = { "prettierd" },
 		},
 	},
 }

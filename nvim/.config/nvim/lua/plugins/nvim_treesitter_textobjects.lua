@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter-textobjects",
+	branch = "main",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 	},
@@ -57,7 +58,7 @@ return {
 		})
 
 		-- make treesitter movements repeatable
-		local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+		local ts_repeat_move = require("nvim-treesitter-textobjects.repeatable_move")
 
 		vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move, {
 			desc = "Repeat last Treesitter move",
