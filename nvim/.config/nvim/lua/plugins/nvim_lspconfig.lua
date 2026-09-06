@@ -1,4 +1,5 @@
--- This configuration is based on kickstart.nvim (https://github.com/nvim-lua/kickstart.nvim/tree/master), with minor modifications for my setup.
+-- This configuration is based on kickstart.nvim (https://github.com/nvim-lua/kickstart.nvim/tree/master),
+-- with minor modifications for my setup.
 
 return {
 	"neovim/nvim-lspconfig",

@@ -5,7 +5,7 @@ dirs_to_search=(
 	~/dev
 )
 
-# need to install fd
+# NOTE: need to install fd
 dir_path=$(fd --type d . "${dirs_to_search[@]}" | fzf)
 
 # exit the script if no directory was selected
